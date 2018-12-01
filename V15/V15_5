@@ -1,0 +1,62 @@
+V 15
+E {<6,1>,<6,13>,<5,1>,<8,2>,<6,14>,<13,8>,<12,7>,<2,4>,<10,4>,<14,3>,<11,6>,<6,4>,<0,3>,<0,6>,<12,1>,<1,9>,<7,2>,<5,0>,<9,6>,<12,3>,<3,1>,<8,7>}
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 342951 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 168902 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 679043957 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 74346 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 32887 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 648159689 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 173093 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 99011 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 683631757 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_2 is 0 seconds, 47496 nanoseconds
+CPU time for APPROX_VC_1is 0 seconds, 59586 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 671513299 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 112808 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 26617 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 658798366 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 117911 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 49949 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 647947179 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 170657 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 126475 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 653615687 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 196326 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 192155 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 680981897 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 194644 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 139147 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 669713038 nanoseconds
+APPROX_VC_2: 0 1 2 3 4 5 6 7 8 10 12 14 
+CPU time for APPROX_VC_2 is 0 seconds, 41817 nanoseconds
+APPROX_VC_1: 0 1 2 3 4 6 7 8 
+CPU time for APPROX_VC_1is 0 seconds, 94968 nanoseconds
+CNF_SAT_VC: 0 1 3 4 6 7 8
+CPU time for CNF_SAT_VCis 1 seconds, 735302844 nanoseconds

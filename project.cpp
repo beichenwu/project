@@ -164,12 +164,25 @@ string Read_Solution(vector<int> sol){
     return out;
 }
 
+static void pclock(char *msg, clockid_t cid)
+{
+
+    struct timespec ts;
+    printf("%s", msg);
+    if (clock_gettime(cid, &ts) == -1)
+        handle_error("clock_gettime");
+    cout << ts.tv_sec << " Seconds and " << ts.tv_nsec << " Nano Second" << endl;
+}
+
+
 void *CNF_SAT_VC(void *arg){
+    clockid_t cid_CNF;
     vector<vector<int>> *e_list = static_cast<vector<vector<int>>*>(arg);
     int number = Vertex_Number(*e_list)+1;
     int min = 1;
     int max = number;
     int mid = floor((number+1)/2);
+
     while(true){
         Solver s(number, mid, *e_list);
         if (s.solve()) {
@@ -188,13 +201,18 @@ void *CNF_SAT_VC(void *arg){
             mid = floor((max + min)/2);
         }
     }
+    pthread_getcpuclockid(pthread_self(), &cid_CNF);
+    pclock("CNF_SAT_VC time:", cid_CNF);
+    return NULL;
 }
 
 void *APPROX_VC_1(void *arg){
+    clockid_t cid_1;
     vector<vector<int>> *e_list = static_cast<vector<vector<int>>*>(arg);
     set<int> vector_cover;
     vector<vector<int>> tmp_e_list;
     copy(e_list->begin(),e_list->end(),back_inserter(tmp_e_list));
+
     int max_vertex;
     int v_number = Vertex_Number(*e_list)+1;
     string out_put = "APPROX_VC_1:";
@@ -208,16 +226,19 @@ void *APPROX_VC_1(void *arg){
         out_put += " " + to_string(e);
     }
     cout <<out_put<<endl;
+    pthread_getcpuclockid(pthread_self(), &cid_1);
+    pclock("APPROX_VC_2_Time:", cid_1);
+    return NULL;
 }
 
 void *APPROX_VC_2(void *arg){
+    clockid_t cid_2;
     vector<vector<int>> *e_list = static_cast<vector<vector<int>>*>(arg);
     set<int> vector_cover;
     vector<vector<int>> tmp_e_list;
     copy(e_list->begin(),e_list->end(),back_inserter(tmp_e_list));
     int index;
     string out_put = "APPROX_VC_2:";
-
     while(tmp_e_list.size() > 0){
         index = index_Generator(e_list->size());
         tmp_e_list = Remove_Edge((*e_list)[index][0], tmp_e_list, (*e_list)[index][1]);
@@ -228,18 +249,10 @@ void *APPROX_VC_2(void *arg){
         out_put += " " + to_string(e);
     }
     cout <<out_put<<endl;
+    pthread_getcpuclockid(pthread_self(), &cid_2);
+    pclock("APPROX_VC_2_Time:", cid_2);
+    return NULL;
 }
-
-static void pclock(char *msg, clockid_t cid)
-{
-
-    struct timespec ts;
-
-    if (clock_gettime(cid, &ts) == -1)
-        handle_error("clock_gettime");
-    printf("%4ld.%010ld\n", ts.tv_sec, ts.tv_nsec / 1000000);
-}
-
 
 
 int main() {
@@ -248,6 +261,7 @@ int main() {
     vector<vector<int> > Edge_List;                                //Assign an empty vector to store the edge
     string Out_Put_Mini;
     vector<vector<string>> variable_string;
+
     while(true) {                                                  //Main loop of the file
 
         getline(cin, User_Input);                                 //Take system standard input
@@ -265,30 +279,18 @@ int main() {
             int number = VerticesVector.size();
             //Solver
             if (Error == 0){
-                clockid_t cid_CNF;
-                clockid_t cid_1;
-                clockid_t cid_2;
 
                 pthread_t CNF_SAT_VC_Thread;
                 pthread_t APPROX_VC_1_Thread;
                 pthread_t APPROX_VC_2_Thread;
 
-
                 pthread_create(&CNF_SAT_VC_Thread, NULL, CNF_SAT_VC, &Edge_List);
-                pthread_getcpuclockid(CNF_SAT_VC_Thread, &cid_CNF);
-                pthread_join(CNF_SAT_VC_Thread,NULL);
-                pclock("CNF_SAT_VC time:", cid_CNF);
-
                 pthread_create(&APPROX_VC_1_Thread, NULL, APPROX_VC_1, &Edge_List);
-                pthread_getcpuclockid(APPROX_VC_1_Thread, &cid_1);
-                pthread_join(APPROX_VC_1_Thread,NULL);
-
-                pclock("APPROX_VC_1 time:", cid_1);
-
                 pthread_create(&APPROX_VC_2_Thread, NULL, APPROX_VC_2, &Edge_List);
-                pthread_getcpuclockid(APPROX_VC_2_Thread, &cid_2);
+
+                pthread_join(CNF_SAT_VC_Thread,NULL);
+                pthread_join(APPROX_VC_1_Thread,NULL);
                 pthread_join(APPROX_VC_2_Thread,NULL);
-                pclock("APPROX_VC_2_Time:", cid_2);
 
             }
         }

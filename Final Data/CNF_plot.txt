@@ -1,0 +1,11 @@
+set terminal png
+set xlabel "Number of Vertices"
+set ylabel "Running time (us)"
+set grid
+set terminal wxt size 350,262 enhanced font 'Verdana,10' persist
+plot "CNF.dat" using 1:2 with lines linetype 8 notitle, "" using 1:2:3 with errorbars linetype 8 title "CNF-SAT"
+
+
+
+
+

@@ -19,9 +19,13 @@ include_directories(${CMAKE_SOURCE_DIR}/minisat)
 
 # create the main executable
 ## add additional .cpp files if needed
-add_executable(project project.cpp vsover.h vsolver.cpp)
+add_executable(project project.cpp vsover.h vsolver.cpp graphplot.cpp)
+add_executable(cupclock cpuclock.cpp)
+add_executable(graphplot graphplot.cpp)
 # link MiniSAT libraries
 target_link_libraries(project minisat-lib-static -lpthread)
+target_link_libraries(cupclock -lpthread)
+target_link_libraries(graphplot -lboost_iostreams -lboost_system -lboost_filesystem)
 # create the executable for tests
 # link MiniSAT libraries
 #target_link_libraries(test minisat-lib-static)
